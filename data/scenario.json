@@ -1,0 +1,862 @@
+{
+  "scenario": "跨媒介分账验收样例：网文改编短剧、非遗直播回放与剪辑复用、联合会员递延确认、拒付、侵权冻结、争议暂扣、封账后迟到广告单差额调整",
+  "currency": "CNY",
+  "events": [
+    {
+      "event_id": "EV-WORK-NOVEL",
+      "event_type": "WORK_REGISTERED",
+      "aggregate_type": "work",
+      "aggregate_id": "W-NOVEL-77",
+      "occurred_at": "2026-09-01T09:00:00+08:00",
+      "version": 1,
+      "summary": "登记连载网文《云岭匠心记》",
+      "body": { "title": "云岭匠心记", "medium": "novel", "ip_owner": "C-A1" }
+    },
+    {
+      "event_id": "EV-WORK-LIVE",
+      "event_type": "WORK_REGISTERED",
+      "aggregate_type": "work",
+      "aggregate_id": "W-LIVE-22",
+      "occurred_at": "2026-09-01T09:05:00+08:00",
+      "version": 1,
+      "summary": "登记非遗直播节目《苏绣针法现场》",
+      "body": { "title": "苏绣针法现场", "medium": "live_heritage", "ip_owner": "PF" }
+    },
+    {
+      "event_id": "EV-WORK-DRAMA",
+      "event_type": "WORK_REGISTERED",
+      "aggregate_type": "work",
+      "aggregate_id": "W-DRAMA-03",
+      "occurred_at": "2026-09-01T09:10:00+08:00",
+      "version": 1,
+      "summary": "登记按集短剧《云岭匠心记·短剧》",
+      "body": { "title": "云岭匠心记·短剧", "medium": "short_drama", "ip_owner": "C-M1" }
+    },
+    {
+      "event_id": "EV-VER-CH0501",
+      "event_type": "VERSION_REGISTERED",
+      "aggregate_type": "content_version",
+      "aggregate_id": "V-CH-0501",
+      "occurred_at": "2026-09-02T10:00:00+08:00",
+      "version": 1,
+      "summary": "登记网文第51章版本",
+      "body": { "version_no": "51", "kind": "chapter", "published_at": "2026-09-02" },
+      "links": [ { "rel": "of_work", "ref": "work/W-NOVEL-77" } ]
+    },
+    {
+      "event_id": "EV-VER-EP01",
+      "event_type": "VERSION_REGISTERED",
+      "aggregate_type": "content_version",
+      "aggregate_id": "V-EP-01",
+      "occurred_at": "2026-09-03T10:00:00+08:00",
+      "version": 1,
+      "summary": "登记短剧第1集版本",
+      "body": { "version_no": "1", "kind": "drama_episode", "published_at": "2026-09-03" },
+      "links": [ { "rel": "of_work", "ref": "work/W-DRAMA-03" } ]
+    },
+    {
+      "event_id": "EV-VER-EP03",
+      "event_type": "VERSION_REGISTERED",
+      "aggregate_type": "content_version",
+      "aggregate_id": "V-EP-03",
+      "occurred_at": "2026-09-05T10:00:00+08:00",
+      "version": 1,
+      "summary": "登记短剧第3集版本（后涉侵权争议）",
+      "body": { "version_no": "3", "kind": "drama_episode", "published_at": "2026-09-05" },
+      "links": [ { "rel": "of_work", "ref": "work/W-DRAMA-03" } ]
+    },
+    {
+      "event_id": "EV-VER-LIVE0915",
+      "event_type": "VERSION_REGISTERED",
+      "aggregate_type": "content_version",
+      "aggregate_id": "V-LIVE-22-0915",
+      "occurred_at": "2026-09-15T20:00:00+08:00",
+      "version": 1,
+      "summary": "登记9月15日非遗直播场次版本",
+      "body": { "version_no": "2026-09-15", "kind": "live_session", "published_at": "2026-09-15" },
+      "links": [ { "rel": "of_work", "ref": "work/W-LIVE-22" } ]
+    },
+    {
+      "event_id": "EV-VER-REPLAY",
+      "event_type": "VERSION_REGISTERED",
+      "aggregate_type": "content_version",
+      "aggregate_id": "V-REPLAY-22",
+      "occurred_at": "2026-09-16T12:00:00+08:00",
+      "version": 1,
+      "summary": "登记直播回放版本",
+      "body": { "version_no": "replay-2026-09-15", "kind": "replay", "published_at": "2026-09-16" },
+      "links": [ { "rel": "of_work", "ref": "work/W-LIVE-22" } ]
+    },
+    {
+      "event_id": "EV-VER-CLIP08",
+      "event_type": "VERSION_REGISTERED",
+      "aggregate_type": "content_version",
+      "aggregate_id": "V-CLIP-08",
+      "occurred_at": "2026-09-20T12:00:00+08:00",
+      "version": 1,
+      "summary": "登记短剧宣传剪辑第8支（含直播素材）",
+      "body": { "version_no": "clip-08", "kind": "clip", "published_at": "2026-09-20" },
+      "links": [ { "rel": "of_work", "ref": "work/W-DRAMA-03" } ]
+    },
+    {
+      "event_id": "EV-ADAPT-EP01",
+      "event_type": "ADAPTATION_LINKED",
+      "aggregate_type": "adaptation_link",
+      "aggregate_id": "AD-NOVEL-DRAMA-EP01",
+      "occurred_at": "2026-09-03T10:05:00+08:00",
+      "version": 1,
+      "summary": "短剧第1集改编自网文第51章，按改编授权合同分账",
+      "body": { "adaptation_type": "novel_to_short_drama", "license_scope": { "media": ["short_drama"], "territories": ["CN"], "uses": ["adaptation"] }, "contract_ref": "HT-A1-2026-01" },
+      "links": [
+        { "rel": "source_work", "ref": "work/W-NOVEL-77" },
+        { "rel": "source_version", "ref": "content_version/V-CH-0501" },
+        { "rel": "derived_version", "ref": "content_version/V-EP-01" },
+        { "rel": "grant", "ref": "rights_grant/G-1" }
+      ]
+    },
+    {
+      "event_id": "EV-ADAPT-EP03",
+      "event_type": "ADAPTATION_LINKED",
+      "aggregate_type": "adaptation_link",
+      "aggregate_id": "AD-NOVEL-DRAMA-EP03",
+      "occurred_at": "2026-09-05T10:05:00+08:00",
+      "version": 1,
+      "summary": "短剧第3集同样改编自该网文",
+      "body": { "adaptation_type": "novel_to_short_drama", "license_scope": { "media": ["short_drama"], "territories": ["CN"], "uses": ["adaptation"] }, "contract_ref": "HT-A1-2026-01" },
+      "links": [
+        { "rel": "source_work", "ref": "work/W-NOVEL-77" },
+        { "rel": "derived_version", "ref": "content_version/V-EP-03" },
+        { "rel": "grant", "ref": "rights_grant/G-1" }
+      ]
+    },
+    {
+      "event_id": "EV-CONTRIB-A1-NOVEL",
+      "event_type": "CONTRIBUTOR_ADDED",
+      "aggregate_type": "contribution",
+      "aggregate_id": "CT-A1-NOVEL",
+      "occurred_at": "2026-09-01T10:00:00+08:00",
+      "version": 1,
+      "summary": "苏砚为网文作者",
+      "body": { "contributor_id": "C-A1", "name": "苏砚", "role": "author" },
+      "links": [ { "rel": "work", "ref": "work/W-NOVEL-77" } ]
+    },
+    {
+      "event_id": "EV-CONTRIB-M1",
+      "event_type": "CONTRIBUTOR_ADDED",
+      "aggregate_type": "contribution",
+      "aggregate_id": "CT-M1-DRAMA",
+      "occurred_at": "2026-09-01T10:05:00+08:00",
+      "version": 1,
+      "summary": "折光短剧工作室为短剧制作方",
+      "body": { "contributor_id": "C-M1", "name": "折光短剧工作室", "role": "producer" },
+      "links": [ { "rel": "work", "ref": "work/W-DRAMA-03" } ]
+    },
+    {
+      "event_id": "EV-CONTRIB-B1",
+      "event_type": "CONTRIBUTOR_ADDED",
+      "aggregate_type": "contribution",
+      "aggregate_id": "CT-B1-LIVE",
+      "occurred_at": "2026-09-01T10:10:00+08:00",
+      "version": 1,
+      "summary": "林晚为非遗直播主播",
+      "body": { "contributor_id": "C-B1", "name": "林晚", "role": "host" },
+      "links": [ { "rel": "work", "ref": "work/W-LIVE-22" } ]
+    },
+    {
+      "event_id": "EV-CONTRIB-C1",
+      "event_type": "CONTRIBUTOR_ADDED",
+      "aggregate_type": "contribution",
+      "aggregate_id": "CT-C1-LIVE",
+      "occurred_at": "2026-09-01T10:15:00+08:00",
+      "version": 1,
+      "summary": "周师傅为苏绣传承人、直播表演者",
+      "body": { "contributor_id": "C-C1", "name": "周师傅", "role": "performer" },
+      "links": [ { "rel": "work", "ref": "work/W-LIVE-22" } ]
+    },
+    {
+      "event_id": "EV-CONTRIB-D1",
+      "event_type": "CONTRIBUTOR_ADDED",
+      "aggregate_type": "contribution",
+      "aggregate_id": "CT-D1-CLIP",
+      "occurred_at": "2026-09-01T10:20:00+08:00",
+      "version": 1,
+      "summary": "阿剪为剪辑师",
+      "body": { "contributor_id": "C-D1", "name": "阿剪", "role": "editor" },
+      "links": [ { "rel": "version", "ref": "content_version/V-CLIP-08" } ]
+    },
+    {
+      "event_id": "EV-GRANT-G1",
+      "event_type": "RIGHTS_GRANTED",
+      "aggregate_type": "rights_grant",
+      "aggregate_id": "G-1",
+      "occurred_at": "2026-01-10T00:00:00+08:00",
+      "version": 1,
+      "summary": "作者授予平台短剧改编权：中国大陆、2026全年、短剧改编分成25%",
+      "body": {
+        "granter": "C-A1", "grantee": "PF",
+        "territories": ["CN"], "exclusive": false,
+        "valid_from": "2026-01-01", "valid_to": "2027-01-01",
+        "media": ["short_drama"], "uses": ["adaptation"],
+        "contract_ref": "HT-A1-2026-01",
+        "revenue_terms": { "drama_share": "0.25" }
+      }
+    },
+    {
+      "event_id": "EV-GRANT-G2",
+      "event_type": "RIGHTS_GRANTED",
+      "aggregate_type": "rights_grant",
+      "aggregate_id": "G-2",
+      "occurred_at": "2026-01-15T00:00:00+08:00",
+      "version": 1,
+      "summary": "主播与传承人授予直播及回放播放权",
+      "body": {
+        "granter": "C-B1,C-C1", "grantee": "PF",
+        "territories": ["CN"], "exclusive": false,
+        "valid_from": "2026-01-01", "valid_to": "2026-12-31",
+        "media": ["live_heritage", "replay", "clip"], "uses": ["stream", "replay", "clip_snippet"],
+        "contract_ref": "HT-LIVE-2026"
+      }
+    },
+    {
+      "event_id": "EV-GRANT-G1-AMEND",
+      "event_type": "GRANT_AMENDED",
+      "aggregate_type": "rights_grant",
+      "aggregate_id": "G-1",
+      "occurred_at": "2026-09-28T00:00:00+08:00",
+      "version": 2,
+      "summary": "改编分成自10月起调整为28%，仅约束未来周期，9月仍按25%",
+      "body": { "changes": { "revenue_terms.drama_share": "0.28" }, "effective_from": "2026-10-01", "retroactive": false },
+      "links": [ { "rel": "amends", "ref": "event/EV-GRANT-G1" } ]
+    },
+    {
+      "event_id": "EV-PP-MEM",
+      "event_type": "PRICE_PLAN_FILED",
+      "aggregate_type": "price_plan",
+      "aggregate_id": "PP-MEM",
+      "occurred_at": "2026-09-01T00:00:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "联合会员内部结算价格方案（未公开单价）",
+      "body": { "plan_type": "bundle", "currency": "CNY", "unit": "month", "confidential": true, "internal_price": "68.00" }
+    },
+    {
+      "event_id": "EV-PP-TIP",
+      "event_type": "PRICE_PLAN_FILED",
+      "aggregate_type": "price_plan",
+      "aggregate_id": "PP-TIP",
+      "occurred_at": "2026-09-01T00:00:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "直播打赏价格方案（未公开单价）",
+      "body": { "plan_type": "tip", "currency": "CNY", "unit": "once", "confidential": true }
+    },
+    {
+      "event_id": "EV-PP-UNLOCK",
+      "event_type": "PRICE_PLAN_FILED",
+      "aggregate_type": "price_plan",
+      "aggregate_id": "PP-UNLOCK",
+      "occurred_at": "2026-09-01T00:00:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "短剧单集解锁价格方案（未公开单价）",
+      "body": { "plan_type": "unlock", "currency": "CNY", "unit": "episode", "confidential": true, "internal_price": "4.00" }
+    },
+    {
+      "event_id": "EV-PP-AD",
+      "event_type": "PRICE_PLAN_FILED",
+      "aggregate_type": "price_plan",
+      "aggregate_id": "PP-AD",
+      "occurred_at": "2026-09-01T00:00:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "广告分成与CPM价格方案（未公开单价）",
+      "body": { "plan_type": "ad_share", "currency": "CNY", "unit": "cpm", "confidential": true }
+    },
+    {
+      "event_id": "EV-BATCH-SEP-OPEN",
+      "event_type": "SETTLEMENT_OPENED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "BATCH-SEP",
+      "occurred_at": "2026-09-01T00:00:00+08:00",
+      "version": 1,
+      "summary": "开启9月结算批次",
+      "body": { "period_start": "2026-09-01", "period_end": "2026-09-30", "status": "open" }
+    },
+    {
+      "event_id": "EV-PAY-BUNDLE",
+      "event_type": "USER_PAYMENT_RECEIVED",
+      "aggregate_type": "payment",
+      "aggregate_id": "P-BUNDLE-9001",
+      "occurred_at": "2026-09-08T08:30:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "收到一笔联合会员款68元，先记递延",
+      "body": { "amount": "68.00", "currency": "CNY", "channel": "CH-YUNGU", "bundle_id": "BUNDLE-JOINT", "payment_kind": "membership_prepaid" },
+      "links": [ { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" } ],
+      "effects": [
+        { "account": "cash_clearing", "entry_type": "debit", "amount": { "amount": "68.00", "currency": "CNY" }, "memo": "联合会员到账" },
+        { "account": "deferred_revenue", "entry_type": "credit", "amount": { "amount": "68.00", "currency": "CNY" }, "memo": "预付会员递延" }
+      ]
+    },
+    {
+      "event_id": "EV-ENT-MEM",
+      "event_type": "ENTITLEMENT_ISSUED",
+      "aggregate_type": "entitlement",
+      "aggregate_id": "E-MEM-9001",
+      "occurred_at": "2026-09-08T08:30:01+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "发放一个月联合会员权益",
+      "body": { "kind": "membership", "period_start": "2026-09-08", "period_end": "2026-10-08" },
+      "links": [ { "rel": "payment", "ref": "payment/P-BUNDLE-9001" } ]
+    },
+    {
+      "event_id": "EV-PAY-TIP",
+      "event_type": "USER_PAYMENT_RECEIVED",
+      "aggregate_type": "payment",
+      "aggregate_id": "P-TIP-100",
+      "occurred_at": "2026-09-15T20:30:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "直播当场收到打赏10元，即时确认",
+      "body": { "amount": "10.00", "currency": "CNY", "channel": "IN_APP", "payment_kind": "tip" },
+      "links": [
+        { "rel": "version", "ref": "content_version/V-LIVE-22-0915" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" }
+      ],
+      "effects": [
+        { "account": "cash_clearing", "entry_type": "debit", "amount": { "amount": "10.00", "currency": "CNY" } },
+        { "account": "revenue:tips", "entry_type": "credit", "amount": { "amount": "10.00", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-PAY-UNLOCK",
+      "event_type": "USER_PAYMENT_RECEIVED",
+      "aggregate_type": "payment",
+      "aggregate_id": "P-UNLOCK-300",
+      "occurred_at": "2026-09-12T21:00:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "单集解锁第1集收款4元，即时确认",
+      "body": { "amount": "4.00", "currency": "CNY", "channel": "IN_APP", "payment_kind": "unlock" },
+      "links": [ { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" } ],
+      "effects": [
+        { "account": "cash_clearing", "entry_type": "debit", "amount": { "amount": "4.00", "currency": "CNY" } },
+        { "account": "revenue:unlock", "entry_type": "credit", "amount": { "amount": "4.00", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-CONS-CH",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "consumption",
+      "aggregate_id": "X-CH-5001",
+      "occurred_at": "2026-09-10T19:00:00+08:00",
+      "version": 1,
+      "visibility": "contributor_private",
+      "summary": "会员阅读网文第51章",
+      "body": { "consumed_at": "2026-09-10T19:00:00+08:00", "quantity": 1, "evidence_ref": "play-token-5001" },
+      "links": [
+        { "rel": "version", "ref": "content_version/V-CH-0501" },
+        { "rel": "entitlement", "ref": "entitlement/E-MEM-9001" },
+        { "rel": "price_plan", "ref": "price_plan/PP-MEM" }
+      ]
+    },
+    {
+      "event_id": "EV-CONS-EP01",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "consumption",
+      "aggregate_id": "X-EP-5002",
+      "occurred_at": "2026-09-11T20:00:00+08:00",
+      "version": 1,
+      "visibility": "contributor_private",
+      "summary": "会员观看短剧第1集",
+      "body": { "consumed_at": "2026-09-11T20:00:00+08:00", "quantity": 1, "evidence_ref": "play-token-5002" },
+      "links": [
+        { "rel": "version", "ref": "content_version/V-EP-01" },
+        { "rel": "entitlement", "ref": "entitlement/E-MEM-9001" },
+        { "rel": "price_plan", "ref": "price_plan/PP-MEM" }
+      ]
+    },
+    {
+      "event_id": "EV-CONS-EP03",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "consumption",
+      "aggregate_id": "X-EP-5003",
+      "occurred_at": "2026-09-12T20:30:00+08:00",
+      "version": 1,
+      "visibility": "contributor_private",
+      "summary": "会员观看短剧第3集（下架前）",
+      "body": { "consumed_at": "2026-09-12T20:30:00+08:00", "quantity": 1, "evidence_ref": "play-token-5003" },
+      "links": [
+        { "rel": "version", "ref": "content_version/V-EP-03" },
+        { "rel": "entitlement", "ref": "entitlement/E-MEM-9001" },
+        { "rel": "price_plan", "ref": "price_plan/PP-MEM" }
+      ]
+    },
+    {
+      "event_id": "EV-CONS-LIVE",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "consumption",
+      "aggregate_id": "X-LIVE-5004",
+      "occurred_at": "2026-09-15T20:30:00+08:00",
+      "version": 1,
+      "visibility": "contributor_private",
+      "summary": "直播当场观看并打赏",
+      "body": { "consumed_at": "2026-09-15T20:30:00+08:00", "quantity": 1, "evidence_ref": "play-token-5004" },
+      "links": [
+        { "rel": "version", "ref": "content_version/V-LIVE-22-0915" },
+        { "rel": "payment", "ref": "payment/P-TIP-100" },
+        { "rel": "price_plan", "ref": "price_plan/PP-TIP" }
+      ]
+    },
+    {
+      "event_id": "EV-REUSE-REPLAY",
+      "event_type": "MATERIAL_REUSE_RECORDED",
+      "aggregate_type": "material_reuse",
+      "aggregate_id": "MR-REPLAY-22",
+      "occurred_at": "2026-09-16T12:05:00+08:00",
+      "version": 1,
+      "summary": "回放复用9月15日直播整场素材，复用部分不重复计酬",
+      "body": { "reuse_kind": "replay", "billable": false },
+      "links": [
+        { "rel": "derived_version", "ref": "content_version/V-REPLAY-22" },
+        { "rel": "reuse_of", "ref": "content_version/V-LIVE-22-0915" }
+      ]
+    },
+    {
+      "event_id": "EV-CONS-REPLAY",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "consumption",
+      "aggregate_id": "X-REPLAY-5005",
+      "occurred_at": "2026-09-17T19:00:00+08:00",
+      "version": 1,
+      "visibility": "contributor_private",
+      "summary": "会员观看直播回放（复用素材，无新增计酬基数）",
+      "body": { "consumed_at": "2026-09-17T19:00:00+08:00", "quantity": 1, "evidence_ref": "play-token-5005" },
+      "links": [
+        { "rel": "version", "ref": "content_version/V-REPLAY-22" },
+        { "rel": "entitlement", "ref": "entitlement/E-MEM-9001" },
+        { "rel": "reuse", "ref": "material_reuse/MR-REPLAY-22" }
+      ]
+    },
+    {
+      "event_id": "EV-REUSE-CLIP",
+      "event_type": "MATERIAL_REUSE_RECORDED",
+      "aggregate_type": "material_reuse",
+      "aggregate_id": "MR-CLIP-08",
+      "occurred_at": "2026-09-20T12:05:00+08:00",
+      "version": 1,
+      "summary": "短剧宣传剪辑复用直播片段，仅剪辑新增价值可计酬",
+      "body": { "reuse_kind": "clip", "billable": false },
+      "links": [
+        { "rel": "derived_version", "ref": "content_version/V-CLIP-08" },
+        { "rel": "reuse_of", "ref": "content_version/V-LIVE-22-0915" }
+      ]
+    },
+    {
+      "event_id": "EV-DEFER-SEP",
+      "event_type": "DEFERRED_REVENUE_RECOGNIZED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-DEFER-SEP",
+      "occurred_at": "2026-09-30T23:00:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "9月按实际消费确认会员收入40元，余28元仍为递延",
+      "body": { "period": "2026-09", "recognition_basis": "actual_consumption", "earned": "40.00", "remaining_deferred": "28.00" },
+      "links": [ { "rel": "payment", "ref": "payment/P-BUNDLE-9001" }, { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" } ],
+      "effects": [
+        { "account": "deferred_revenue", "entry_type": "debit", "amount": { "amount": "40.00", "currency": "CNY" }, "memo": "按实际消费赚取" },
+        { "account": "revenue:subscription", "entry_type": "credit", "amount": { "amount": "40.00", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-RA-CH",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-RA-CH-SEP",
+      "occurred_at": "2026-09-30T23:05:00+08:00",
+      "version": 1,
+      "visibility": "public_aggregates",
+      "summary": "网文章节订阅收入10元分账：作者70%，平台30%",
+      "body": { "gross": "10.00", "currency": "CNY", "revenue_kind": "subscription" },
+      "subjects": [
+        { "kind": "contributor", "key": "C-A1", "share_basis": "contract_rate", "share": "0.70" },
+        { "kind": "platform", "key": "PF", "share_basis": "platform", "share": "0.30" }
+      ],
+      "links": [
+        { "rel": "consumption", "ref": "consumption/X-CH-5001" },
+        { "rel": "version", "ref": "content_version/V-CH-0501" },
+        { "rel": "work", "ref": "work/W-NOVEL-77" },
+        { "rel": "price_plan", "ref": "price_plan/PP-MEM" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" }
+      ],
+      "effects": [
+        { "account": "revenue:subscription", "entry_type": "debit", "amount": { "amount": "10.00", "currency": "CNY" } },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "7.00", "currency": "CNY" }, "memo": "C-A1" },
+        { "account": "platform_retained", "entry_type": "credit", "amount": { "amount": "3.00", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-RA-EP01",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-RA-EP01-SEP",
+      "occurred_at": "2026-09-30T23:06:00+08:00",
+      "version": 1,
+      "visibility": "public_aggregates",
+      "summary": "短剧第1集订阅收入20元分账：原作者改编分成25%、制作方60%、平台15%",
+      "body": { "gross": "20.00", "currency": "CNY", "revenue_kind": "subscription", "contract_rate_applied": "0.25" },
+      "subjects": [
+        { "kind": "contributor", "key": "C-A1", "share_basis": "contract_rate", "share": "0.25" },
+        { "kind": "contributor", "key": "C-M1", "share_basis": "contribution_role", "share": "0.60" },
+        { "kind": "platform", "key": "PF", "share_basis": "platform", "share": "0.15" }
+      ],
+      "links": [
+        { "rel": "consumption", "ref": "consumption/X-EP-5002" },
+        { "rel": "version", "ref": "content_version/V-EP-01" },
+        { "rel": "adaptation", "ref": "adaptation_link/AD-NOVEL-DRAMA-EP01" },
+        { "rel": "source_work", "ref": "work/W-NOVEL-77" },
+        { "rel": "price_plan", "ref": "price_plan/PP-MEM" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" }
+      ],
+      "effects": [
+        { "account": "revenue:subscription", "entry_type": "debit", "amount": { "amount": "20.00", "currency": "CNY" } },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "5.00", "currency": "CNY" }, "memo": "C-A1" },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "12.00", "currency": "CNY" }, "memo": "C-M1" },
+        { "account": "platform_retained", "entry_type": "credit", "amount": { "amount": "3.00", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-RA-EP03",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-RA-EP03-SEP",
+      "occurred_at": "2026-09-30T23:07:00+08:00",
+      "version": 1,
+      "visibility": "public_aggregates",
+      "summary": "短剧第3集订阅收入10元照常分账（争议发生前先归属，A1部分随后暂扣）",
+      "body": { "gross": "10.00", "currency": "CNY", "revenue_kind": "subscription", "contract_rate_applied": "0.25" },
+      "subjects": [
+        { "kind": "contributor", "key": "C-A1", "share_basis": "contract_rate", "share": "0.25" },
+        { "kind": "contributor", "key": "C-M1", "share_basis": "contribution_role", "share": "0.60" },
+        { "kind": "platform", "key": "PF", "share_basis": "platform", "share": "0.15" }
+      ],
+      "links": [
+        { "rel": "consumption", "ref": "consumption/X-EP-5003" },
+        { "rel": "version", "ref": "content_version/V-EP-03" },
+        { "rel": "adaptation", "ref": "adaptation_link/AD-NOVEL-DRAMA-EP03" },
+        { "rel": "price_plan", "ref": "price_plan/PP-MEM" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" }
+      ],
+      "effects": [
+        { "account": "revenue:subscription", "entry_type": "debit", "amount": { "amount": "10.00", "currency": "CNY" } },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "2.50", "currency": "CNY" }, "memo": "C-A1" },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "6.00", "currency": "CNY" }, "memo": "C-M1" },
+        { "account": "platform_retained", "entry_type": "credit", "amount": { "amount": "1.50", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-RA-LIVE-TIP",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-RA-TIP-SEP",
+      "occurred_at": "2026-09-15T20:31:00+08:00",
+      "version": 1,
+      "visibility": "public_aggregates",
+      "summary": "直播打赏10元分账：主播60%、传承人20%、平台20%",
+      "body": { "gross": "10.00", "currency": "CNY", "revenue_kind": "tips" },
+      "subjects": [
+        { "kind": "contributor", "key": "C-B1", "share_basis": "contribution_role", "share": "0.60" },
+        { "kind": "contributor", "key": "C-C1", "share_basis": "contribution_role", "share": "0.20" },
+        { "kind": "platform", "key": "PF", "share_basis": "platform", "share": "0.20" }
+      ],
+      "links": [
+        { "rel": "consumption", "ref": "consumption/X-LIVE-5004" },
+        { "rel": "payment", "ref": "payment/P-TIP-100" },
+        { "rel": "version", "ref": "content_version/V-LIVE-22-0915" },
+        { "rel": "price_plan", "ref": "price_plan/PP-TIP" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" }
+      ],
+      "effects": [
+        { "account": "revenue:tips", "entry_type": "debit", "amount": { "amount": "10.00", "currency": "CNY" } },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "6.00", "currency": "CNY" }, "memo": "C-B1" },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "2.00", "currency": "CNY" }, "memo": "C-C1" },
+        { "account": "platform_retained", "entry_type": "credit", "amount": { "amount": "2.00", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-RA-EP01-UNLOCK",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-RA-EP01-UNLOCK",
+      "occurred_at": "2026-09-12T21:01:00+08:00",
+      "version": 1,
+      "visibility": "public_aggregates",
+      "summary": "第1集解锁4元分账：原作者25%、制作方60%、平台15%",
+      "body": { "gross": "4.00", "currency": "CNY", "revenue_kind": "unlock", "contract_rate_applied": "0.25" },
+      "subjects": [
+        { "kind": "contributor", "key": "C-A1", "share_basis": "contract_rate", "share": "0.25" },
+        { "kind": "contributor", "key": "C-M1", "share_basis": "contribution_role", "share": "0.60" },
+        { "kind": "platform", "key": "PF", "share_basis": "platform", "share": "0.15" }
+      ],
+      "links": [
+        { "rel": "payment", "ref": "payment/P-UNLOCK-300" },
+        { "rel": "version", "ref": "content_version/V-EP-01" },
+        { "rel": "adaptation", "ref": "adaptation_link/AD-NOVEL-DRAMA-EP01" },
+        { "rel": "price_plan", "ref": "price_plan/PP-UNLOCK" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" }
+      ],
+      "effects": [
+        { "account": "revenue:unlock", "entry_type": "debit", "amount": { "amount": "4.00", "currency": "CNY" } },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "1.00", "currency": "CNY" }, "memo": "C-A1" },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "2.40", "currency": "CNY" }, "memo": "C-M1" },
+        { "account": "platform_retained", "entry_type": "credit", "amount": { "amount": "0.60", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-TAX-SEP",
+      "event_type": "TAX_ASSESSED",
+      "aggregate_type": "tax_line",
+      "aggregate_id": "T-SEP-WHT",
+      "occurred_at": "2026-09-30T23:10:00+08:00",
+      "version": 1,
+      "summary": "代扣个税：苏砚1元、林晚1元",
+      "body": { "currency": "CNY", "tax_kind": "withholding_income_tax" },
+      "subjects": [
+        { "kind": "contributor", "key": "C-A1", "share_basis": "fixed" },
+        { "kind": "contributor", "key": "C-B1", "share_basis": "fixed" }
+      ],
+      "links": [ { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" } ],
+      "effects": [
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "1.00", "currency": "CNY" }, "memo": "C-A1 代扣个税" },
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "1.00", "currency": "CNY" }, "memo": "C-B1 代扣个税" },
+        { "account": "tax_payable", "entry_type": "credit", "amount": { "amount": "2.00", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-REFUND-BUNDLE",
+      "event_type": "REFUND_RECORDED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-REFUND-9001",
+      "occurred_at": "2026-09-30T20:00:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "联合会员退款：仅退还尚未消费的递延余额28元，已确认40元不退",
+      "body": { "currency": "CNY", "refund_amount": "28.00", "remaining_deferred_at_refund": "28.00", "recognized_not_refunded": "40.00" },
+      "links": [
+        { "rel": "original_payment", "ref": "payment/P-BUNDLE-9001" },
+        { "rel": "entitlement", "ref": "entitlement/E-MEM-9001" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" }
+      ],
+      "effects": [
+        { "account": "deferred_revenue", "entry_type": "debit", "amount": { "amount": "28.00", "currency": "CNY" }, "memo": "冲销未消费递延" },
+        { "account": "cash_clearing", "entry_type": "credit", "amount": { "amount": "28.00", "currency": "CNY" }, "memo": "退款划出" }
+      ]
+    },
+    {
+      "event_id": "EV-CHARGEBACK-TIP",
+      "event_type": "CHARGEBACK_RECORDED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-CB-100",
+      "occurred_at": "2026-09-27T10:00:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "打赏拒付2元，按原分账比例从仍有权利的各方冲减：主播1.20、传承人0.40、平台0.40",
+      "body": { "currency": "CNY", "chargeback_amount": "2.00" },
+      "subjects": [
+        { "kind": "contributor", "key": "C-B1", "share_basis": "contribution_role", "share": "0.60" },
+        { "kind": "contributor", "key": "C-C1", "share_basis": "contribution_role", "share": "0.20" },
+        { "kind": "platform", "key": "PF", "share_basis": "platform", "share": "0.20" }
+      ],
+      "links": [
+        { "rel": "original_payment", "ref": "payment/P-TIP-100" },
+        { "rel": "reverses", "ref": "revenue_event/R-RA-TIP-SEP" },
+        { "rel": "version", "ref": "content_version/V-LIVE-22-0915" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" }
+      ],
+      "effects": [
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "1.20", "currency": "CNY" }, "memo": "C-B1" },
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "0.40", "currency": "CNY" }, "memo": "C-C1" },
+        { "account": "platform_retained", "entry_type": "debit", "amount": { "amount": "0.40", "currency": "CNY" } },
+        { "account": "cash_clearing", "entry_type": "credit", "amount": { "amount": "2.00", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-DISPUTE-EP03",
+      "event_type": "DISPUTE_OPENED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-RA-EP03-SEP",
+      "occurred_at": "2026-09-29T09:00:00+08:00",
+      "version": 2,
+      "summary": "第三方主张短剧第3集抄袭，争议范围仅限该集与苏砚的改编分成",
+      "body": { "reason": "alleged_infringement", "scope": { "version": "V-EP-03", "contributor": "C-A1", "territories": ["CN"] } },
+      "links": [ { "rel": "about", "ref": "revenue_event/R-RA-EP03-SEP" } ]
+    },
+    {
+      "event_id": "EV-GRANT-G1-FROZEN",
+      "event_type": "GRANT_FROZEN",
+      "aggregate_type": "rights_grant",
+      "aggregate_id": "G-1",
+      "occurred_at": "2026-09-29T09:05:00+08:00",
+      "version": 3,
+      "summary": "冻结改编授权，范围仅短剧第3集；第1集与其他媒介不受影响",
+      "body": { "scope": { "version": "V-EP-03", "territories": ["CN"], "uses": ["adaptation"] }, "reason": "alleged_infringement" },
+      "links": [ { "rel": "dispute", "ref": "revenue_event/R-RA-EP03-SEP" } ]
+    },
+    {
+      "event_id": "EV-WITHHOLD-EP03-A1",
+      "event_type": "WITHHOLDING_PLACED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-WH-EP03-A1",
+      "occurred_at": "2026-09-30T23:15:00+08:00",
+      "version": 1,
+      "summary": "暂扣苏砚在第3集的应付分成2.50元入争议专户；制作方6元不受影响照常排款",
+      "body": { "currency": "CNY", "amount": "2.50", "scope": { "version": "V-EP-03", "contributor": "C-A1" } },
+      "subjects": [ { "kind": "contributor", "key": "C-A1", "share_basis": "fixed" } ],
+      "links": [
+        { "rel": "dispute", "ref": "revenue_event/R-RA-EP03-SEP" },
+        { "rel": "version", "ref": "content_version/V-EP-03" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" }
+      ],
+      "effects": [
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "2.50", "currency": "CNY" }, "memo": "C-A1 争议暂扣" },
+        { "account": "withholding_escrow", "entry_type": "credit", "amount": { "amount": "2.50", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-TAKEDOWN-EP03",
+      "event_type": "CONTENT_TAKEN_DOWN",
+      "aggregate_type": "content_version",
+      "aggregate_id": "V-EP-03",
+      "occurred_at": "2026-09-29T12:00:00+08:00",
+      "version": 2,
+      "summary": "短剧第3集在中国大陆下架，阻止该范围新增消费确认，已封账收入不自动推翻",
+      "body": { "scope": { "version": "V-EP-03", "territories": ["CN"] }, "reason": "legal_request" }
+    },
+    {
+      "event_id": "EV-GRANT-G2-WITHDRAW",
+      "event_type": "GRANT_WITHDRAWN",
+      "aggregate_type": "rights_grant",
+      "aggregate_id": "G-2",
+      "occurred_at": "2026-09-25T00:00:00+08:00",
+      "version": 2,
+      "summary": "主播林晚退出，仅终止10月起未来场次的使用授权；历史直播打赏与回放已确认收入不追溯",
+      "body": { "withdrawing_party": "C-B1", "valid_from": "2026-10-01", "scope": { "media": ["live_heritage"], "future_uses_only": true } },
+      "links": [ { "rel": "amends", "ref": "event/EV-GRANT-G2" } ]
+    },
+    {
+      "event_id": "EV-PAYOUT-SEP",
+      "event_type": "PAYOUT_SCHEDULED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "BATCH-SEP",
+      "occurred_at": "2026-09-30T23:30:00+08:00",
+      "version": 2,
+      "summary": "9月排款（扣税、拒付、暂扣后）：苏砚12、折光20.40、林晚3.80、周师傅1.60，合计37.80",
+      "body": {
+        "currency": "CNY",
+        "scheduled": { "C-A1": "12.00", "C-M1": "20.40", "C-B1": "3.80", "C-C1": "1.60" }
+      },
+      "links": [ { "rel": "period_batch", "ref": "settlement_batch/BATCH-SEP" } ],
+      "effects": [
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "12.00", "currency": "CNY" }, "memo": "C-A1" },
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "20.40", "currency": "CNY" }, "memo": "C-M1" },
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "3.80", "currency": "CNY" }, "memo": "C-B1" },
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "1.60", "currency": "CNY" }, "memo": "C-C1" },
+        { "account": "cash_clearing", "entry_type": "credit", "amount": { "amount": "37.80", "currency": "CNY" } }
+      ]
+    },
+    {
+      "event_id": "EV-BATCH-SEP-CLOSE",
+      "event_type": "SETTLEMENT_CLOSED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "BATCH-SEP",
+      "occurred_at": "2026-10-01T02:00:00+08:00",
+      "version": 3,
+      "summary": "9月批次封账，批内分录冻结",
+      "body": { "period_start": "2026-09-01", "period_end": "2026-09-30", "status": "closed" }
+    },
+    {
+      "event_id": "EV-BATCH-OCT-OPEN",
+      "event_type": "SETTLEMENT_OPENED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "BATCH-OCT",
+      "occurred_at": "2026-10-01T02:05:00+08:00",
+      "version": 1,
+      "summary": "开启10月结算批次",
+      "body": { "period_start": "2026-10-01", "period_end": "2026-10-31", "status": "open" }
+    },
+    {
+      "event_id": "EV-CS-LATE-AD",
+      "event_type": "CHANNEL_STATEMENT_RECEIVED",
+      "aggregate_type": "channel_statement",
+      "aggregate_id": "CS-YUNGU-SEPT-AD",
+      "occurred_at": "2026-10-05T11:00:00+08:00",
+      "version": 1,
+      "visibility": "finance_internal",
+      "summary": "迟到的9月广告分成渠道单在封账后才到达：回放与剪辑广告毛额20元、渠道费4元、净16元",
+      "body": {
+        "statement_id": "CS-YUNGU-SEPT-AD",
+        "period_start": "2026-09-01", "period_end": "2026-09-30",
+        "currency": "CNY",
+        "line_items": [
+          { "version_ref": "V-REPLAY-22", "gross": "10.00", "note": "回放广告（素材复用，不另付主播/传承人）" },
+          { "version_ref": "V-CLIP-08", "gross": "10.00", "note": "剪辑广告（仅剪辑新增价值计酬）" }
+        ],
+        "deductions": [ { "type": "channel_fee", "amount": "4.00" } ],
+        "net": "16.00"
+      },
+      "links": [
+        { "rel": "price_plan", "ref": "price_plan/PP-AD" },
+        { "rel": "reconciles_period", "ref": "settlement_batch/BATCH-SEP" }
+      ]
+    },
+    {
+      "event_id": "EV-ADJ-LATE-AD",
+      "event_type": "ADJUSTMENT_POSTED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "R-ADJ-LATE-AD",
+      "occurred_at": "2026-10-05T11:10:00+08:00",
+      "version": 1,
+      "visibility": "public_aggregates",
+      "summary": "迟到广告单以差额调整进入10月批次、标注归属9月周期：剪辑师就剪辑新增价值分得7元，回放复用部分不重复计酬，平台留存13元",
+      "body": {
+        "currency": "CNY", "delta": "16.00", "reason": "late_channel_statement",
+        "reuse_excluded": { "version_ref": "V-REPLAY-22", "excluded_party": "C-B1,C-C1" }
+      },
+      "subjects": [
+        { "kind": "contributor", "key": "C-D1", "share_basis": "contribution_role", "share": "0.35" },
+        { "kind": "platform", "key": "PF", "share_basis": "platform", "share": "0.65" }
+      ],
+      "links": [
+        { "rel": "target_batch", "ref": "settlement_batch/BATCH-SEP" },
+        { "rel": "period_batch", "ref": "settlement_batch/BATCH-OCT" },
+        { "rel": "statement", "ref": "channel_statement/CS-YUNGU-SEPT-AD" },
+        { "rel": "version", "ref": "content_version/V-CLIP-08" },
+        { "rel": "reuse", "ref": "material_reuse/MR-REPLAY-22" }
+      ],
+      "effects": [
+        { "account": "cash_clearing", "entry_type": "debit", "amount": { "amount": "16.00", "currency": "CNY" }, "memo": "渠道净付款" },
+        { "account": "channel_fee", "entry_type": "debit", "amount": { "amount": "4.00", "currency": "CNY" }, "memo": "渠道费用" },
+        { "account": "revenue:ad_share", "entry_type": "credit", "amount": { "amount": "20.00", "currency": "CNY" } },
+        { "account": "revenue:ad_share", "entry_type": "debit", "amount": { "amount": "20.00", "currency": "CNY" } },
+        { "account": "contributor_payable", "entry_type": "credit", "amount": { "amount": "7.00", "currency": "CNY" }, "memo": "C-D1 剪辑新增价值" },
+        { "account": "platform_retained", "entry_type": "credit", "amount": { "amount": "13.00", "currency": "CNY" }, "memo": "回放10(复用不重酬)+剪辑3" }
+      ]
+    },
+    {
+      "event_id": "EV-PAYOUT-OCT-D1",
+      "event_type": "PAYOUT_SCHEDULED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "BATCH-OCT",
+      "occurred_at": "2026-10-05T11:20:00+08:00",
+      "version": 2,
+      "summary": "10月就迟到广告调整向剪辑师排款7元",
+      "body": { "currency": "CNY", "scheduled": { "C-D1": "7.00" } },
+      "links": [ { "rel": "period_batch", "ref": "settlement_batch/BATCH-OCT" } ],
+      "effects": [
+        { "account": "contributor_payable", "entry_type": "debit", "amount": { "amount": "7.00", "currency": "CNY" }, "memo": "C-D1" },
+        { "account": "cash_clearing", "entry_type": "credit", "amount": { "amount": "7.00", "currency": "CNY" } }
+      ]
+    }
+  ]
+}

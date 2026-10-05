@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "新大众文艺分账网关领域事件",
+  "description": "收入归属后端的不可变事件契约。新增字段全部可选，历史记录保持有效；业务更正只能追加后继事件，不得原地改写。",
   "type": "object",
   "required": [
     "event_id",
@@ -14,16 +15,43 @@
   "properties": {
     "event_id": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "事件全局唯一标识，后继事件通过 links 引用它，不复用、不改写。"
     },
     "event_type": {
       "type": "string",
       "enum": [
         "RIGHT_REGISTERED",
+        "WORK_REGISTERED",
+        "VERSION_REGISTERED",
+        "ADAPTATION_LINKED",
+        "CONTRIBUTOR_ADDED",
+        "RIGHTS_GRANTED",
+        "GRANT_AMENDED",
+        "GRANT_FROZEN",
+        "GRANT_RELEASED",
+        "GRANT_WITHDRAWN",
+        "CONTENT_TAKEN_DOWN",
+        "PRICE_PLAN_FILED",
+        "USER_PAYMENT_RECEIVED",
+        "ENTITLEMENT_ISSUED",
         "CONSUMPTION_RECORDED",
+        "MATERIAL_REUSE_RECORDED",
+        "CHANNEL_STATEMENT_RECEIVED",
+        "REFUND_RECORDED",
+        "CHARGEBACK_RECORDED",
+        "TAX_ASSESSED",
         "REVENUE_ALLOCATED",
+        "REVENUE_REVERSED",
+        "DEFERRED_REVENUE_RECOGNIZED",
+        "ADJUSTMENT_POSTED",
         "DISPUTE_OPENED",
-        "SETTLEMENT_CLOSED"
+        "DISPUTE_RESOLVED",
+        "WITHHOLDING_PLACED",
+        "WITHHOLDING_RELEASED",
+        "SETTLEMENT_OPENED",
+        "SETTLEMENT_CLOSED",
+        "PAYOUT_SCHEDULED"
       ]
     },
     "aggregate_type": {
@@ -31,6 +59,18 @@
       "enum": [
         "content_asset",
         "rights_term",
+        "work",
+        "content_version",
+        "adaptation_link",
+        "contribution",
+        "rights_grant",
+        "price_plan",
+        "payment",
+        "entitlement",
+        "consumption",
+        "material_reuse",
+        "channel_statement",
+        "tax_line",
         "revenue_event",
         "settlement_batch"
       ]
@@ -50,7 +90,89 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "body": {
+      "type": "object",
+      "description": "事件负载，字段随事件类型而定，见 docs/domain.md。"
+    },
+    "effects": {
+      "type": "array",
+      "description": "复式分录。同一事件内借贷必须按币种各自平衡；金额用最小货币单位的整数或显式标注的字符串小数。",
+      "items": { "$ref": "#/$defs/entry" }
+    },
+    "links": {
+      "type": "array",
+      "description": "与既有契约标识的关联：原始作品、版本、改编关系、支付、消费、批次等。",
+      "items": { "$ref": "#/$defs/link" }
+    },
+    "subjects": {
+      "type": "array",
+      "description": "分录的归属主体（贡献者、渠道、平台）。个人消费者不得作为具名主体进入财务流。",
+      "items": { "$ref": "#/$defs/subject" }
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["public_aggregates", "contributor_private", "finance_internal", "legal_restricted"],
+      "description": "趋势分析等下游投影只允许读取 public_aggregates 字段；未公开单价标 finance_internal。"
     }
   },
-  "additionalProperties": true
+  "additionalProperties": true,
+  "$defs": {
+    "money": {
+      "type": "object",
+      "required": ["amount", "currency"],
+      "properties": {
+        "amount": { "type": "string", "pattern": "^-?[0-9]+(\\.[0-9]{1,4})?$" },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "required": ["account", "entry_type", "amount"],
+      "properties": {
+        "account": {
+          "type": "string",
+          "description": "科目名，见 docs/domain.md 的科目表，如 cash_clearing / deferred_revenue / revenue:tips。"
+        },
+        "entry_type": { "type": "string", "enum": ["debit", "credit"] },
+        "amount": { "$ref": "#/$defs/money" },
+        "memo": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "link": {
+      "type": "object",
+      "required": ["rel", "ref"],
+      "properties": {
+        "rel": {
+          "type": "string",
+          "description": "关系名，如 source_work / based_on_version / payment / consumption / period_batch / supersedes / reuse_of。"
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "目标标识：aggregate_type/aggregate_id，或 event_id。"
+        }
+      },
+      "additionalProperties": false
+    },
+    "subject": {
+      "type": "object",
+      "required": ["kind", "key"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["contributor", "channel", "platform", "tax_authority"] },
+        "key": { "type": "string", "minLength": 1 },
+        "share_basis": {
+          "type": "string",
+          "enum": ["contract_rate", "contribution_role", "fixed", "platform"],
+          "description": "分账依据：合同费率 / 贡献角色 / 固定额 / 平台留存。"
+        },
+        "share": {
+          "type": "string",
+          "pattern": "^0(\\.[0-9]{1,6})?$|^1(\\.0{1,6})?$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
 }
