@@ -1,0 +1,1168 @@
+{
+  "events": [
+    {
+      "event_id": "ev-2026-0001",
+      "event_type": "CONTRIBUTOR_REGISTERED",
+      "aggregate_type": "contributor",
+      "aggregate_id": "ct-author-01",
+      "occurred_at": "2026-07-01T09:00:00+08:00",
+      "version": 1,
+      "summary": "登记网文作者阿岚",
+      "payload": {
+        "name": "阿岚",
+        "role": "网文作者",
+        "contract_id": "contract-novel-2026-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0002",
+      "event_type": "CONTRIBUTOR_REGISTERED",
+      "aggregate_type": "contributor",
+      "aggregate_id": "ct-streamer-01",
+      "occurred_at": "2026-07-01T09:01:00+08:00",
+      "version": 1,
+      "summary": "登记非遗主播筝云社",
+      "payload": {
+        "name": "筝云社",
+        "role": "非遗主播",
+        "contract_id": "contract-live-2026-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0003",
+      "event_type": "CONTRIBUTOR_REGISTERED",
+      "aggregate_type": "contributor",
+      "aggregate_id": "ct-studio-01",
+      "occurred_at": "2026-07-01T09:02:00+08:00",
+      "version": 1,
+      "summary": "登记短剧制作方白驹文化",
+      "payload": {
+        "name": "白驹文化",
+        "role": "短剧制作方",
+        "contract_id": "contract-shujin-2026-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0004",
+      "event_type": "ASSET_REGISTERED",
+      "aggregate_type": "content_asset",
+      "aggregate_id": "asset-novel-001",
+      "occurred_at": "2026-07-02T09:00:00+08:00",
+      "version": 1,
+      "summary": "登记连载网文《蜀锦记》",
+      "payload": {
+        "title": "蜀锦记",
+        "medium": "连载网文"
+      }
+    },
+    {
+      "event_id": "ev-2026-0005",
+      "event_type": "ASSET_VERSION_PUBLISHED",
+      "aggregate_type": "content_asset",
+      "aggregate_id": "ver-novel-001-c01",
+      "occurred_at": "2026-07-02T09:01:00+08:00",
+      "version": 1,
+      "summary": "发布《蜀锦记》第一章",
+      "payload": {
+        "work_id": "asset-novel-001",
+        "kind": "章节",
+        "label": "第一章"
+      }
+    },
+    {
+      "event_id": "ev-2026-0006",
+      "event_type": "ASSET_REGISTERED",
+      "aggregate_type": "content_asset",
+      "aggregate_id": "asset-drama-001",
+      "occurred_at": "2026-07-03T09:00:00+08:00",
+      "version": 1,
+      "summary": "登记短剧《蜀锦记·短剧版》",
+      "payload": {
+        "title": "蜀锦记·短剧版",
+        "medium": "按集短剧"
+      }
+    },
+    {
+      "event_id": "ev-2026-0007",
+      "event_type": "ADAPTATION_LINKED",
+      "aggregate_type": "content_asset",
+      "aggregate_id": "asset-drama-001",
+      "occurred_at": "2026-07-03T09:01:00+08:00",
+      "version": 2,
+      "summary": "登记网文到短剧的改编关系",
+      "payload": {
+        "source_asset_id": "asset-novel-001",
+        "contract_id": "contract-shujin-2026-01",
+        "note": "网文改编短剧，分账按改编合同"
+      }
+    },
+    {
+      "event_id": "ev-2026-0008",
+      "event_type": "ASSET_VERSION_PUBLISHED",
+      "aggregate_type": "content_asset",
+      "aggregate_id": "ver-drama-001-e01",
+      "occurred_at": "2026-07-03T09:02:00+08:00",
+      "version": 1,
+      "summary": "发布短剧第1集",
+      "payload": {
+        "work_id": "asset-drama-001",
+        "kind": "剧集",
+        "label": "第1集"
+      }
+    },
+    {
+      "event_id": "ev-2026-0009",
+      "event_type": "ASSET_REGISTERED",
+      "aggregate_type": "content_asset",
+      "aggregate_id": "asset-live-001",
+      "occurred_at": "2026-07-04T09:00:00+08:00",
+      "version": 1,
+      "summary": "登记非遗直播「蜀锦织造」",
+      "payload": {
+        "title": "蜀锦织造非遗直播",
+        "medium": "非遗直播"
+      }
+    },
+    {
+      "event_id": "ev-2026-0010",
+      "event_type": "RIGHT_REGISTERED",
+      "aggregate_type": "rights_term",
+      "aggregate_id": "rt-novel-01",
+      "occurred_at": "2026-07-05T09:00:00+08:00",
+      "version": 1,
+      "summary": "登记网文订阅权（中国境内，五年期）",
+      "payload": {
+        "asset_id": "asset-novel-001",
+        "right_kind": "信息网络传播权（订阅）",
+        "territory": "CN",
+        "term_start": "2026-01-01",
+        "term_end": "2030-12-31",
+        "contract_id": "contract-novel-2026-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0011",
+      "event_type": "RIGHT_REGISTERED",
+      "aggregate_type": "rights_term",
+      "aggregate_id": "rt-drama-01",
+      "occurred_at": "2026-07-05T09:01:00+08:00",
+      "version": 1,
+      "summary": "登记短剧改编与传播权（中国境内，五年期）",
+      "payload": {
+        "asset_id": "asset-drama-001",
+        "right_kind": "改编权及信息网络传播权",
+        "territory": "CN",
+        "term_start": "2026-01-01",
+        "term_end": "2030-12-31",
+        "contract_id": "contract-shujin-2026-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0012",
+      "event_type": "RIGHT_REGISTERED",
+      "aggregate_type": "rights_term",
+      "aggregate_id": "rt-live-01",
+      "occurred_at": "2026-07-05T09:02:00+08:00",
+      "version": 1,
+      "summary": "登记直播及回放权（中国境内，一年期）",
+      "payload": {
+        "asset_id": "asset-live-001",
+        "right_kind": "直播及回放权",
+        "territory": "CN",
+        "term_start": "2026-01-01",
+        "term_end": "2026-12-31",
+        "contract_id": "contract-live-2026-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0013",
+      "event_type": "PRICE_PLAN_PUBLISHED",
+      "aggregate_type": "price_plan",
+      "aggregate_id": "pp-sub-01",
+      "occurred_at": "2026-07-06T09:00:00+08:00",
+      "version": 1,
+      "summary": "发布网文订阅价格（公开）",
+      "payload": {
+        "kind": "网文订阅",
+        "unit_price": 300,
+        "currency": "CNY",
+        "visibility": "public",
+        "applies_to": "asset-novel-001"
+      }
+    },
+    {
+      "event_id": "ev-2026-0014",
+      "event_type": "PRICE_PLAN_PUBLISHED",
+      "aggregate_type": "price_plan",
+      "aggregate_id": "pp-unlock-01",
+      "occurred_at": "2026-07-06T09:01:00+08:00",
+      "version": 1,
+      "summary": "发布短剧解锁价格（公开）",
+      "payload": {
+        "kind": "短剧解锁",
+        "unit_price": 500,
+        "currency": "CNY",
+        "visibility": "public",
+        "applies_to": "asset-drama-001"
+      }
+    },
+    {
+      "event_id": "ev-2026-0015",
+      "event_type": "PRICE_PLAN_PUBLISHED",
+      "aggregate_type": "price_plan",
+      "aggregate_id": "pp-member-01",
+      "occurred_at": "2026-07-06T09:02:00+08:00",
+      "version": 1,
+      "summary": "发布联合会员价格（公开）",
+      "payload": {
+        "kind": "联合会员",
+        "unit_price": 3000,
+        "currency": "CNY",
+        "visibility": "public"
+      }
+    },
+    {
+      "event_id": "ev-2026-0016",
+      "event_type": "PRICE_PLAN_PUBLISHED",
+      "aggregate_type": "price_plan",
+      "aggregate_id": "pp-ad-01",
+      "occurred_at": "2026-07-06T09:03:00+08:00",
+      "version": 1,
+      "summary": "发布广告分成方案（单价未公开）",
+      "payload": {
+        "kind": "广告分成",
+        "unit_price": 200,
+        "currency": "CNY",
+        "visibility": "internal",
+        "applies_to": "asset-drama-001"
+      }
+    },
+    {
+      "event_id": "ev-2026-0017",
+      "event_type": "SETTLEMENT_BATCH_OPENED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "batch-2026-08",
+      "occurred_at": "2026-08-01T09:00:00+08:00",
+      "version": 1,
+      "summary": "开启 2026 年 8 月结算批次",
+      "payload": {
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31"
+      }
+    },
+    {
+      "event_id": "ev-2026-0018",
+      "event_type": "PAYMENT_RECEIVED",
+      "aggregate_type": "payment",
+      "aggregate_id": "pay-001",
+      "occurred_at": "2026-08-03T10:00:00+08:00",
+      "version": 1,
+      "summary": "用户购买联合会员 3000 分",
+      "payload": {
+        "user_id": "u-1001",
+        "amount": 3000,
+        "currency": "CNY",
+        "kind": "联合会员",
+        "price_plan_id": "pp-member-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0019",
+      "event_type": "REVENUE_DEFERRED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "def-001",
+      "occurred_at": "2026-08-03T10:01:00+08:00",
+      "version": 1,
+      "summary": "联合会员收入全额递延",
+      "payload": {
+        "payment_id": "pay-001",
+        "amount": 3000,
+        "currency": "CNY"
+      }
+    },
+    {
+      "event_id": "ev-2026-0020",
+      "event_type": "ASSET_VERSION_PUBLISHED",
+      "aggregate_type": "content_asset",
+      "aggregate_id": "ver-live-001-s01",
+      "occurred_at": "2026-08-05T20:00:00+08:00",
+      "version": 1,
+      "summary": "发布直播场次 20260805",
+      "payload": {
+        "work_id": "asset-live-001",
+        "kind": "场次",
+        "label": "20260805场"
+      }
+    },
+    {
+      "event_id": "ev-2026-0021",
+      "event_type": "PAYMENT_RECEIVED",
+      "aggregate_type": "payment",
+      "aggregate_id": "pay-002",
+      "occurred_at": "2026-08-05T20:30:00+08:00",
+      "version": 1,
+      "summary": "直播场次收到打赏 1000 分",
+      "payload": {
+        "user_id": "u-1002",
+        "amount": 1000,
+        "currency": "CNY",
+        "kind": "主播打赏"
+      }
+    },
+    {
+      "event_id": "ev-2026-0022",
+      "event_type": "REVENUE_RECOGNIZED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "rec-001",
+      "occurred_at": "2026-08-05T20:31:00+08:00",
+      "version": 1,
+      "summary": "打赏收入当场确认",
+      "payload": {
+        "payment_id": "pay-002",
+        "amount": 1000,
+        "currency": "CNY",
+        "revenue_kind": "主播打赏",
+        "asset_version_id": "ver-live-001-s01",
+        "rights_term_id": "rt-live-01",
+        "contract_id": "contract-live-2026-01",
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0023",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "cons-001",
+      "occurred_at": "2026-08-06T09:00:00+08:00",
+      "version": 1,
+      "summary": "用户观看直播回放（复用场次素材）",
+      "payload": {
+        "user_id": "u-1002",
+        "asset_version_id": "ver-live-001-s01",
+        "kind": "回放观看",
+        "reuse_of": "ver-live-001-s01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0024",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "cons-002",
+      "occurred_at": "2026-08-10T21:00:00+08:00",
+      "version": 1,
+      "summary": "会员解锁短剧第1集",
+      "payload": {
+        "user_id": "u-1001",
+        "asset_version_id": "ver-drama-001-e01",
+        "kind": "短剧解锁"
+      }
+    },
+    {
+      "event_id": "ev-2026-0025",
+      "event_type": "REVENUE_RECOGNIZED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "rec-002",
+      "occurred_at": "2026-08-10T21:01:00+08:00",
+      "version": 1,
+      "summary": "会员递延随解锁确认 500 分",
+      "payload": {
+        "consumption_id": "cons-002",
+        "deferred_from": "pay-001",
+        "amount": 500,
+        "currency": "CNY",
+        "revenue_kind": "短剧解锁",
+        "asset_version_id": "ver-drama-001-e01",
+        "rights_term_id": "rt-drama-01",
+        "contract_id": "contract-shujin-2026-01",
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0026",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "cons-003",
+      "occurred_at": "2026-08-12T22:00:00+08:00",
+      "version": 1,
+      "summary": "会员订阅网文第一章",
+      "payload": {
+        "user_id": "u-1001",
+        "asset_version_id": "ver-novel-001-c01",
+        "kind": "网文订阅"
+      }
+    },
+    {
+      "event_id": "ev-2026-0027",
+      "event_type": "REVENUE_RECOGNIZED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "rec-003",
+      "occurred_at": "2026-08-12T22:01:00+08:00",
+      "version": 1,
+      "summary": "会员递延随订阅确认 300 分",
+      "payload": {
+        "consumption_id": "cons-003",
+        "deferred_from": "pay-001",
+        "amount": 300,
+        "currency": "CNY",
+        "revenue_kind": "网文订阅",
+        "asset_version_id": "ver-novel-001-c01",
+        "rights_term_id": "rt-novel-01",
+        "contract_id": "contract-novel-2026-01",
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0028",
+      "event_type": "ASSET_VERSION_PUBLISHED",
+      "aggregate_type": "content_asset",
+      "aggregate_id": "ver-drama-001-e02",
+      "occurred_at": "2026-08-20T12:00:00+08:00",
+      "version": 1,
+      "summary": "发布短剧第2集",
+      "payload": {
+        "work_id": "asset-drama-001",
+        "kind": "剧集",
+        "label": "第2集"
+      }
+    },
+    {
+      "event_id": "ev-2026-0029",
+      "event_type": "CHANNEL_STATEMENT_RECEIVED",
+      "aggregate_type": "channel_statement",
+      "aggregate_id": "stmt-001",
+      "occurred_at": "2026-08-31T23:00:00+08:00",
+      "version": 1,
+      "summary": "渠道甲八月广告分成快报 800 分",
+      "payload": {
+        "channel": "渠道甲",
+        "amount": 800,
+        "currency": "CNY",
+        "revenue_kind": "广告分成",
+        "asset_version_id": "ver-drama-001-e01",
+        "statement_period": "2026-08",
+        "final": false
+      }
+    },
+    {
+      "event_id": "ev-2026-0030",
+      "event_type": "REVENUE_RECOGNIZED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "rec-004",
+      "occurred_at": "2026-08-31T23:01:00+08:00",
+      "version": 1,
+      "summary": "按快报确认广告分成 800 分",
+      "payload": {
+        "statement_id": "stmt-001",
+        "amount": 800,
+        "currency": "CNY",
+        "revenue_kind": "广告分成",
+        "asset_version_id": "ver-drama-001-e01",
+        "rights_term_id": "rt-drama-01",
+        "contract_id": "contract-shujin-2026-01",
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0031",
+      "event_type": "SETTLEMENT_BATCH_OPENED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "batch-2026-09",
+      "occurred_at": "2026-09-01T09:00:00+08:00",
+      "version": 1,
+      "summary": "开启 2026 年 9 月结算批次",
+      "payload": {
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30"
+      }
+    },
+    {
+      "event_id": "ev-2026-0032",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "alloc-08-streamer",
+      "occurred_at": "2026-09-01T18:00:00+08:00",
+      "version": 1,
+      "summary": "主播打赏分账：筝云社 760 分",
+      "payload": {
+        "contributor_id": "ct-streamer-01",
+        "amount": 760,
+        "currency": "CNY",
+        "contract_id": "contract-live-2026-01",
+        "rights_term_id": "rt-live-01",
+        "source_ids": [
+          "rec-001"
+        ],
+        "asset_version_id": "ver-live-001-s01",
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0033",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "alloc-08-studio",
+      "occurred_at": "2026-09-01T18:01:00+08:00",
+      "version": 1,
+      "summary": "短剧分账：白驹文化 700 分",
+      "payload": {
+        "contributor_id": "ct-studio-01",
+        "amount": 700,
+        "currency": "CNY",
+        "contract_id": "contract-shujin-2026-01",
+        "rights_term_id": "rt-drama-01",
+        "source_ids": [
+          "rec-002",
+          "rec-004"
+        ],
+        "asset_version_id": "ver-drama-001-e01",
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0034",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "alloc-08-author-drama",
+      "occurred_at": "2026-09-01T18:02:00+08:00",
+      "version": 1,
+      "summary": "短剧分账：阿岚 480 分",
+      "payload": {
+        "contributor_id": "ct-author-01",
+        "amount": 480,
+        "currency": "CNY",
+        "contract_id": "contract-shujin-2026-01",
+        "rights_term_id": "rt-drama-01",
+        "source_ids": [
+          "rec-002",
+          "rec-004"
+        ],
+        "asset_version_id": "ver-drama-001-e01",
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0035",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "alloc-08-author-novel",
+      "occurred_at": "2026-09-01T18:03:00+08:00",
+      "version": 1,
+      "summary": "网文订阅分账：阿岚 200 分",
+      "payload": {
+        "contributor_id": "ct-author-01",
+        "amount": 200,
+        "currency": "CNY",
+        "contract_id": "contract-novel-2026-01",
+        "rights_term_id": "rt-novel-01",
+        "source_ids": [
+          "rec-003"
+        ],
+        "asset_version_id": "ver-novel-001-c01",
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0036",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-01",
+      "occurred_at": "2026-09-01T18:04:00+08:00",
+      "version": 1,
+      "summary": "渠道服务费 80 分（广告分成）",
+      "payload": {
+        "reason": "渠道服务费",
+        "amount": 80,
+        "currency": "CNY",
+        "applies_to": [
+          "rec-004"
+        ],
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0037",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-02",
+      "occurred_at": "2026-09-01T18:05:00+08:00",
+      "version": 1,
+      "summary": "平台服务费 200 分（打赏）",
+      "payload": {
+        "reason": "平台服务费",
+        "amount": 200,
+        "currency": "CNY",
+        "applies_to": [
+          "rec-001"
+        ],
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0038",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-03",
+      "occurred_at": "2026-09-01T18:06:00+08:00",
+      "version": 1,
+      "summary": "平台服务费 90 分（网文订阅）",
+      "payload": {
+        "reason": "平台服务费",
+        "amount": 90,
+        "currency": "CNY",
+        "applies_to": [
+          "rec-003"
+        ],
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0039",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-04",
+      "occurred_at": "2026-09-01T18:07:00+08:00",
+      "version": 1,
+      "summary": "税费代扣 40 分（筝云社）",
+      "payload": {
+        "reason": "税费代扣",
+        "amount": 40,
+        "currency": "CNY",
+        "applies_to": [
+          "alloc-08-streamer"
+        ],
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0040",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-05",
+      "occurred_at": "2026-09-01T18:08:00+08:00",
+      "version": 1,
+      "summary": "税费代扣 32 分（白驹文化）",
+      "payload": {
+        "reason": "税费代扣",
+        "amount": 32,
+        "currency": "CNY",
+        "applies_to": [
+          "alloc-08-studio"
+        ],
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0041",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-06",
+      "occurred_at": "2026-09-01T18:09:00+08:00",
+      "version": 1,
+      "summary": "税费代扣 8 分（阿岚·短剧）",
+      "payload": {
+        "reason": "税费代扣",
+        "amount": 8,
+        "currency": "CNY",
+        "applies_to": [
+          "alloc-08-author-drama"
+        ],
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0042",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-07",
+      "occurred_at": "2026-09-01T18:10:00+08:00",
+      "version": 1,
+      "summary": "税费代扣 10 分（阿岚·网文）",
+      "payload": {
+        "reason": "税费代扣",
+        "amount": 10,
+        "currency": "CNY",
+        "applies_to": [
+          "alloc-08-author-novel"
+        ],
+        "settlement_batch_id": "batch-2026-08"
+      }
+    },
+    {
+      "event_id": "ev-2026-0043",
+      "event_type": "SETTLEMENT_CLOSED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "batch-2026-08",
+      "occurred_at": "2026-09-05T10:00:00+08:00",
+      "version": 2,
+      "summary": "八月批次封账",
+      "payload": {
+        "period_end": "2026-08-31"
+      }
+    },
+    {
+      "event_id": "ev-2026-0044",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "cons-004",
+      "occurred_at": "2026-09-08T20:00:00+08:00",
+      "version": 1,
+      "summary": "会员解锁短剧第2集",
+      "payload": {
+        "user_id": "u-1001",
+        "asset_version_id": "ver-drama-001-e02",
+        "kind": "短剧解锁"
+      }
+    },
+    {
+      "event_id": "ev-2026-0045",
+      "event_type": "REVENUE_RECOGNIZED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "rec-005",
+      "occurred_at": "2026-09-08T20:01:00+08:00",
+      "version": 1,
+      "summary": "会员递延随解锁确认 500 分",
+      "payload": {
+        "consumption_id": "cons-004",
+        "deferred_from": "pay-001",
+        "amount": 500,
+        "currency": "CNY",
+        "revenue_kind": "短剧解锁",
+        "asset_version_id": "ver-drama-001-e02",
+        "rights_term_id": "rt-drama-01",
+        "contract_id": "contract-shujin-2026-01",
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0046",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "cons-005",
+      "occurred_at": "2026-09-09T11:00:00+08:00",
+      "version": 1,
+      "summary": "单集购买短剧第2集",
+      "payload": {
+        "user_id": "u-1004",
+        "asset_version_id": "ver-drama-001-e02",
+        "kind": "短剧解锁"
+      }
+    },
+    {
+      "event_id": "ev-2026-0047",
+      "event_type": "PAYMENT_RECEIVED",
+      "aggregate_type": "payment",
+      "aggregate_id": "pay-005",
+      "occurred_at": "2026-09-09T11:00:00+08:00",
+      "version": 1,
+      "summary": "单集解锁支付 500 分",
+      "payload": {
+        "user_id": "u-1004",
+        "amount": 500,
+        "currency": "CNY",
+        "kind": "短剧解锁",
+        "price_plan_id": "pp-unlock-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0048",
+      "event_type": "REVENUE_RECOGNIZED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "rec-006",
+      "occurred_at": "2026-09-09T11:01:00+08:00",
+      "version": 1,
+      "summary": "单集解锁确认 500 分",
+      "payload": {
+        "consumption_id": "cons-005",
+        "payment_id": "pay-005",
+        "amount": 500,
+        "currency": "CNY",
+        "revenue_kind": "短剧解锁",
+        "asset_version_id": "ver-drama-001-e02",
+        "rights_term_id": "rt-drama-01",
+        "contract_id": "contract-shujin-2026-01",
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0049",
+      "event_type": "CHARGEBACK_RECORDED",
+      "aggregate_type": "payment",
+      "aggregate_id": "pay-005",
+      "occurred_at": "2026-09-10T09:00:00+08:00",
+      "version": 2,
+      "summary": "用户拒付，冲减已确认收入 500 分",
+      "payload": {
+        "amount": 500,
+        "currency": "CNY",
+        "reverses_recognition": "rec-006",
+        "reason": "用户拒付",
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0050",
+      "event_type": "PAYMENT_RECEIVED",
+      "aggregate_type": "payment",
+      "aggregate_id": "pay-004",
+      "occurred_at": "2026-09-11T10:00:00+08:00",
+      "version": 1,
+      "summary": "用户购买联合会员 3000 分",
+      "payload": {
+        "user_id": "u-1003",
+        "amount": 3000,
+        "currency": "CNY",
+        "kind": "联合会员",
+        "price_plan_id": "pp-member-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0051",
+      "event_type": "REVENUE_DEFERRED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "def-004",
+      "occurred_at": "2026-09-11T10:01:00+08:00",
+      "version": 1,
+      "summary": "联合会员收入全额递延",
+      "payload": {
+        "payment_id": "pay-004",
+        "amount": 3000,
+        "currency": "CNY"
+      }
+    },
+    {
+      "event_id": "ev-2026-0052",
+      "event_type": "CHANNEL_STATEMENT_RECEIVED",
+      "aggregate_type": "channel_statement",
+      "aggregate_id": "stmt-002",
+      "occurred_at": "2026-09-12T09:00:00+08:00",
+      "version": 1,
+      "summary": "渠道甲八月正式账单 950 分（迟到）",
+      "payload": {
+        "channel": "渠道甲",
+        "amount": 950,
+        "currency": "CNY",
+        "revenue_kind": "广告分成",
+        "asset_version_id": "ver-drama-001-e01",
+        "statement_period": "2026-08",
+        "final": true
+      }
+    },
+    {
+      "event_id": "ev-2026-0053",
+      "event_type": "LATE_STATEMENT_ADJUSTED",
+      "aggregate_type": "channel_statement",
+      "aggregate_id": "adj-001",
+      "occurred_at": "2026-09-12T09:01:00+08:00",
+      "version": 1,
+      "summary": "迟到账单差额 +150 分，调整入九月批次",
+      "payload": {
+        "statement_id": "stmt-002",
+        "adjusts_statement_id": "stmt-001",
+        "adjusts_batch_id": "batch-2026-08",
+        "settlement_batch_id": "batch-2026-09",
+        "amount": 150,
+        "currency": "CNY",
+        "revenue_kind": "广告分成",
+        "asset_version_id": "ver-drama-001-e01",
+        "rights_term_id": "rt-drama-01",
+        "contract_id": "contract-shujin-2026-01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0054",
+      "event_type": "CONSUMPTION_RECORDED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "cons-006",
+      "occurred_at": "2026-09-13T15:00:00+08:00",
+      "version": 1,
+      "summary": "用户观看短剧剪辑（复用第1集素材）",
+      "payload": {
+        "user_id": "u-1005",
+        "asset_version_id": "ver-drama-001-e01",
+        "kind": "剪辑观看",
+        "reuse_of": "ver-drama-001-e01"
+      }
+    },
+    {
+      "event_id": "ev-2026-0055",
+      "event_type": "REFUND_RECORDED",
+      "aggregate_type": "payment",
+      "aggregate_id": "pay-004",
+      "occurred_at": "2026-09-15T14:00:00+08:00",
+      "version": 2,
+      "summary": "联合会员未消费全额退款 3000 分",
+      "payload": {
+        "amount": 3000,
+        "currency": "CNY",
+        "deferred_from": "pay-004",
+        "reason": "联合会员未消费退款"
+      }
+    },
+    {
+      "event_id": "ev-2026-0056",
+      "event_type": "DISPUTE_OPENED",
+      "aggregate_type": "dispute_case",
+      "aggregate_id": "disp-001",
+      "occurred_at": "2026-09-20T10:00:00+08:00",
+      "version": 1,
+      "summary": "阿岚对短剧分成比例提起争议",
+      "payload": {
+        "parties": [
+          "ct-studio-01",
+          "ct-author-01"
+        ],
+        "subject": "contract-shujin-2026-01 短剧分成比例",
+        "disputed_amount": 46,
+        "currency": "CNY"
+      }
+    },
+    {
+      "event_id": "ev-2026-0057",
+      "event_type": "RIGHTS_SCOPE_CONSTRAINED",
+      "aggregate_type": "rights_term",
+      "aggregate_id": "rt-drama-01",
+      "occurred_at": "2026-09-28T10:00:00+08:00",
+      "version": 2,
+      "summary": "第三方主张第2集配乐侵权，冻结短剧权利项（11月起）",
+      "payload": {
+        "reason": "侵权冻结",
+        "rights_term_ids": [
+          "rt-drama-01"
+        ],
+        "effective_from": "2026-11-01T00:00:00+08:00",
+        "note": "仅约束 rt-drama-01，网文与直播权利不受影响"
+      }
+    },
+    {
+      "event_id": "ev-2026-0058",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "alloc-09-studio",
+      "occurred_at": "2026-09-30T18:00:00+08:00",
+      "version": 1,
+      "summary": "短剧分账：白驹文化 224 分（已扣暂存）",
+      "payload": {
+        "contributor_id": "ct-studio-01",
+        "amount": 224,
+        "currency": "CNY",
+        "contract_id": "contract-shujin-2026-01",
+        "rights_term_id": "rt-drama-01",
+        "source_ids": [
+          "rec-005"
+        ],
+        "asset_version_id": "ver-drama-001-e02",
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0059",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "alloc-09-author",
+      "occurred_at": "2026-09-30T18:01:00+08:00",
+      "version": 1,
+      "summary": "短剧分账：阿岚 180 分",
+      "payload": {
+        "contributor_id": "ct-author-01",
+        "amount": 180,
+        "currency": "CNY",
+        "contract_id": "contract-shujin-2026-01",
+        "rights_term_id": "rt-drama-01",
+        "source_ids": [
+          "rec-005"
+        ],
+        "asset_version_id": "ver-drama-001-e02",
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0060",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "alloc-09-studio-adj",
+      "occurred_at": "2026-09-30T18:02:00+08:00",
+      "version": 1,
+      "summary": "差额调整分账：白驹文化 90 分",
+      "payload": {
+        "contributor_id": "ct-studio-01",
+        "amount": 90,
+        "currency": "CNY",
+        "contract_id": "contract-shujin-2026-01",
+        "rights_term_id": "rt-drama-01",
+        "source_ids": [
+          "adj-001"
+        ],
+        "asset_version_id": "ver-drama-001-e01",
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0061",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "alloc-09-author-adj",
+      "occurred_at": "2026-09-30T18:03:00+08:00",
+      "version": 1,
+      "summary": "差额调整分账：阿岚 60 分",
+      "payload": {
+        "contributor_id": "ct-author-01",
+        "amount": 60,
+        "currency": "CNY",
+        "contract_id": "contract-shujin-2026-01",
+        "rights_term_id": "rt-drama-01",
+        "source_ids": [
+          "adj-001"
+        ],
+        "asset_version_id": "ver-drama-001-e01",
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0062",
+      "event_type": "ESCROW_HELD",
+      "aggregate_type": "dispute_case",
+      "aggregate_id": "disp-001",
+      "occurred_at": "2026-09-30T18:04:00+08:00",
+      "version": 2,
+      "summary": "争议差额 46 分自白驹文化应分中暂存",
+      "payload": {
+        "dispute_id": "disp-001",
+        "escrow_id": "esc-001",
+        "contributor_id": "ct-studio-01",
+        "amount": 46,
+        "currency": "CNY",
+        "settlement_batch_id": "batch-2026-09",
+        "note": "争议期间暂存，不影响其他贡献者"
+      }
+    },
+    {
+      "event_id": "ev-2026-0063",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-101",
+      "occurred_at": "2026-09-30T18:05:00+08:00",
+      "version": 1,
+      "summary": "平台服务费 40 分（第2集解锁）",
+      "payload": {
+        "reason": "平台服务费",
+        "amount": 40,
+        "currency": "CNY",
+        "applies_to": [
+          "rec-005"
+        ],
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0064",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-102",
+      "occurred_at": "2026-09-30T18:06:00+08:00",
+      "version": 1,
+      "summary": "税费代扣 6 分（白驹文化）",
+      "payload": {
+        "reason": "税费代扣",
+        "amount": 6,
+        "currency": "CNY",
+        "applies_to": [
+          "alloc-09-studio"
+        ],
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0065",
+      "event_type": "DEDUCTION_APPLIED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "ded-103",
+      "occurred_at": "2026-09-30T18:07:00+08:00",
+      "version": 1,
+      "summary": "税费代扣 4 分（阿岚）",
+      "payload": {
+        "reason": "税费代扣",
+        "amount": 4,
+        "currency": "CNY",
+        "applies_to": [
+          "alloc-09-author"
+        ],
+        "settlement_batch_id": "batch-2026-09"
+      }
+    },
+    {
+      "event_id": "ev-2026-0066",
+      "event_type": "SETTLEMENT_BATCH_OPENED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "batch-2026-10",
+      "occurred_at": "2026-10-01T09:00:00+08:00",
+      "version": 1,
+      "summary": "开启 2026 年 10 月结算批次",
+      "payload": {
+        "period_start": "2026-10-01",
+        "period_end": "2026-10-31"
+      }
+    },
+    {
+      "event_id": "ev-2026-0067",
+      "event_type": "SETTLEMENT_CLOSED",
+      "aggregate_type": "settlement_batch",
+      "aggregate_id": "batch-2026-09",
+      "occurred_at": "2026-10-05T10:00:00+08:00",
+      "version": 2,
+      "summary": "九月批次封账",
+      "payload": {
+        "period_end": "2026-09-30"
+      }
+    },
+    {
+      "event_id": "ev-2026-0068",
+      "event_type": "DISPUTE_RESOLVED",
+      "aggregate_type": "dispute_case",
+      "aggregate_id": "disp-001",
+      "occurred_at": "2026-10-08T10:00:00+08:00",
+      "version": 3,
+      "summary": "仲裁维持合同比例，暂存归属白驹文化",
+      "payload": {
+        "resolution": "维持合同 60/40 比例，暂存释放给白驹文化"
+      }
+    },
+    {
+      "event_id": "ev-2026-0069",
+      "event_type": "ESCROW_RELEASED",
+      "aggregate_type": "dispute_case",
+      "aggregate_id": "disp-001",
+      "occurred_at": "2026-10-08T10:01:00+08:00",
+      "version": 4,
+      "summary": "暂存 46 分释放入十月批次",
+      "payload": {
+        "dispute_id": "disp-001",
+        "escrow_id": "esc-001",
+        "contributor_id": "ct-studio-01",
+        "amount": 46,
+        "currency": "CNY",
+        "settlement_batch_id": "batch-2026-10"
+      }
+    },
+    {
+      "event_id": "ev-2026-0070",
+      "event_type": "REVENUE_ALLOCATED",
+      "aggregate_type": "revenue_event",
+      "aggregate_id": "alloc-10-studio",
+      "occurred_at": "2026-10-08T10:02:00+08:00",
+      "version": 1,
+      "summary": "暂存释放转为白驹文化应付 46 分",
+      "payload": {
+        "contributor_id": "ct-studio-01",
+        "amount": 46,
+        "currency": "CNY",
+        "contract_id": "contract-shujin-2026-01",
+        "rights_term_id": "rt-drama-01",
+        "source_ids": [
+          "esc-001"
+        ],
+        "asset_version_id": "ver-drama-001-e02",
+        "settlement_batch_id": "batch-2026-10"
+      }
+    }
+  ]
+}

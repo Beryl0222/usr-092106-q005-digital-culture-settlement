@@ -19,10 +19,28 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "ASSET_REGISTERED",
+        "ASSET_VERSION_PUBLISHED",
+        "ADAPTATION_LINKED",
+        "CONTRIBUTOR_REGISTERED",
         "RIGHT_REGISTERED",
+        "RIGHTS_SCOPE_CONSTRAINED",
+        "PRICE_PLAN_PUBLISHED",
+        "PAYMENT_RECEIVED",
+        "REFUND_RECORDED",
+        "CHARGEBACK_RECORDED",
+        "CHANNEL_STATEMENT_RECEIVED",
+        "LATE_STATEMENT_ADJUSTED",
         "CONSUMPTION_RECORDED",
+        "REVENUE_DEFERRED",
+        "REVENUE_RECOGNIZED",
         "REVENUE_ALLOCATED",
+        "DEDUCTION_APPLIED",
         "DISPUTE_OPENED",
+        "DISPUTE_RESOLVED",
+        "ESCROW_HELD",
+        "ESCROW_RELEASED",
+        "SETTLEMENT_BATCH_OPENED",
         "SETTLEMENT_CLOSED"
       ]
     },
@@ -30,9 +48,14 @@
       "type": "string",
       "enum": [
         "content_asset",
+        "contributor",
         "rights_term",
+        "price_plan",
+        "payment",
+        "channel_statement",
         "revenue_event",
-        "settlement_batch"
+        "settlement_batch",
+        "dispute_case"
       ]
     },
     "aggregate_id": {
@@ -50,6 +73,9 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object"
     }
   },
   "additionalProperties": true
